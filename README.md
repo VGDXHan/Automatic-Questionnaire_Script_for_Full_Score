@@ -1,16 +1,18 @@
 # How to start?
 
-**运行前先清空 ./logs 文件夹**
+## 环境配置
 
-## 直接运行
+本人运行环境：
 
-1. 安装依赖 playwright v1.18.1 
-2. 运行 main.py
+Python==3.10
+
+```bash
+pip install -r requirements.txt
+```
+
+运行 main.py 会展示测试问卷的运行效果
 
 ## 在自己的问卷上运行
 
-1. 修改 Interactor.py
-    1. self.url 改为自己问卷的链接
-    2. 根据问卷实际情况修改网页 selector
-2. 根据问卷实际情况修改 main.py 中创建 Solver 对象传入的 n_questions（问题数目）, n_options（每个问题的选项数目） 参数
-3. 运行 main.py
+- 问卷星问卷：修改 config.yaml 文件即可
+- 其余网站问卷：修改 config.yaml 的基础上需要根据问卷实际布局修改 Interactor 类中的代码

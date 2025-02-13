@@ -1,0 +1,44 @@
+# Questionaire url
+url: "https://kaoshi.wjx.top/vm/wFcQaPc.aspx#"
+
+# Deepseek config
+api_key: ""
+base_url: "https://api.deepseek.com"
+
+# Path to store log files
+QUESTIONS_PATH: "./logs/questions.txt"
+ANSWERS_PATH: "./logs/answers.txt"
+
+n_questions: 30 # Number of questions in the questionnaire
+
+# Selector definitions for the questionnaire webpage
+# Example:
+# The selectors for extracting questions for Question 1 and Question 2 are
+# #div1 > div.field-label > div.topichtml
+# #div2 > div.field-label > div.topichtml
+# Therefore, the format for extracting questions is #div{question_number} > div.field-label > div.topichtml
+
+# The selectors for extracting option descriptions for Question 1 and Question 2 are
+# #div1 > div.ui-controlgroup.column1
+# #div2 > div.ui-controlgroup.column1
+# Therefore, the format for extracting option descriptions is #div{question_number} > div.ui-controlgroup.column1
+
+# The selectors for selecting the 2nd option of Question 22 and the 4th option of Question 1 are
+# #div22 > div.ui-controlgroup.column1 > div:nth-child(2)
+# #div1 > div.ui-controlgroup.column1 > div:nth-child(4)
+# Therefore, the format for selecting options is #div{question_number} > div.ui-controlgroup.column1 > div:nth-child({option_number})
+
+# All three selectors share the common prefix "#div", so selector_prefix is set to "#div"
+selector_prefix: "#div"
+# selector_question_suffix is the latter part of the selector for extracting questions (#div{question_number} > div.field-label > div.topichtml)
+selector_question_suffix: " > div.field-label > div.topichtml"
+# selector_answer_suffix is the latter part of the selector for extracting option descriptions (#div{question_number} > div.ui-controlgroup.column1)
+selector_answer_suffix: " > div.ui-controlgroup.column1"
+# option_selector_suffix is the latter part of the selector for selecting options (#div{question_number} > div.ui-controlgroup.column1 > div:nth-child({option_number}))
+selector_option_suffix: " > div.ui-controlgroup.column1 > div:nth-child"
+# Selector for the submit button
+subbmit_selector: "#ctlNext"
+# Selector for the smart verification button (if smart verification appears)
+valid_button_selector: "#SM_BTN_WRAPPER_1"
+# Selector for the score display area on the results page
+score_selector: "#divdsc > div > div.score-form__details-wrapper.score-form__details_table > div.score-form__news.pull-left.score-form__totalval > div.tht-content > div"
