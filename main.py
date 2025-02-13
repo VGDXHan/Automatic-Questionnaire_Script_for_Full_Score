@@ -1,5 +1,3 @@
-# https://kaoshi.wjx.top/vm/wFcQaPc.aspx#
-
 from playwright.sync_api import sync_playwright
 
 from Interactor import Interactor   
@@ -23,6 +21,7 @@ def main():
             
             interactor = Interactor()
             solver = Solver()
+            interactor.examine(page)
             interactor.storage_all_qa(page)
             solver.solve()
             interactor.finish_questionaire(page)

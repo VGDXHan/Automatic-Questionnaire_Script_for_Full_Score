@@ -8,7 +8,25 @@ class Interactor:
     
     def __init__(self, n_questions=30):
         self.params = Params()
-                
+    
+    def examine(self, page):
+        q_selector_test = "".join([self.params.selector_prefix, '1', self.params.selector_question_suffix])
+        a_selector_test = "".join([self.params.selector_prefix, '1', self.params.selector_answer_suffix])
+        if page.locator(q_selector_test).count() == 0:
+            print("提取问题描述的 selector 配置错误")
+            exit(1)
+        if page.locator(a_selector_test).count() == 0:
+            print("提取选项描述的 selector 配置错误")
+            exit(1)
+        if page.locator(self.params.subbmit_selector).count() == 0:
+            print("提交问卷的 selector 配置错误")
+            exit(1)
+        option_selector_test = "".join([self.params.selector_prefix, '1', 
+                                   self.params.selector_option_suffix, "({})".format(1)])
+        if page.locator(option_selector_test).count() == 0:
+            print("选择选项的 selector 配置错误")
+            exit(1)
+    
     def extract_qa(self, page, q_selector, a_selector):
         question_locator = page.locator(q_selector)
         question = question_locator.all_inner_texts()

@@ -8,7 +8,10 @@ Python==3.10
 
 ```bash
 pip install -r requirements.txt
+playwright install
 ```
+
+填写 config.yaml 中的 api_key（自己 deepseek 的 api-key）
 
 运行 main.py 会展示测试问卷的运行效果
 
